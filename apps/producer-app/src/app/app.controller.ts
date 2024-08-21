@@ -7,6 +7,11 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
+  send() {
+    return this.appService.sendNotification('Hello RabbitMQ!');
+  }
+
+  @Get('data')
   getData() {
     return this.appService.getData();
   }
