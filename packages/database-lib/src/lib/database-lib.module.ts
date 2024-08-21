@@ -1,5 +1,6 @@
 import { DynamicModule, Global, Module } from '@nestjs/common';
 import postgres from 'postgres';
+import { drizzle } from 'drizzle-orm/postgres-js';
 
 @Global()
 @Module({})
@@ -10,7 +11,7 @@ export class DatabaseModule {
       providers: [
         {
           provide: 'QUERY_CLIENT',
-          useValue: postgres(databaseUrl),
+          useValue: drizzle(postgres(databaseUrl)),
         },
       ],
       exports: ['QUERY_CLIENT'],

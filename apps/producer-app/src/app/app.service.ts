@@ -1,24 +1,27 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
-import { Sql } from 'postgres';
-import { drizzle } from 'drizzle-orm/postgres-js';
+import { PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import { Author, authors } from '../../db/author';
+import { eq } from 'drizzle-orm';
 
 @Injectable()
 export class AppService {
   constructor(
     @Inject('HELLO_SERVICE') private readonly client: ClientProxy,
-    @Inject('QUERY_CLIENT') private readonly sql: Sql
+    @Inject('QUERY_CLIENT') private readonly db: PostgresJsDatabase
   ) {}
-
-  db = drizzle(this.sql);
 
   sendNotification(message: string): string {
     this.client.emit('hello', message);
     return message;
   }
 
-  async getData(): Promise<Author[]> {
-    return await this.db.select().from(authors).execute();
+  async getData(): Promise<Author> {
+    const author = await this.db
+      .select()
+      .from(authors)
+      .where(eq(authors.id, 1))
+      .execute();
+    return author[0];
   }
 }

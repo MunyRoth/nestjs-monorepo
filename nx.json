@@ -35,7 +35,11 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/producer-app-e2e/**/*", "apps/consumer-app-e2e/**/*"]
+      "exclude": [
+        "apps/producer-app-e2e/**/*",
+        "apps/consumer-app-e2e/**/*",
+        "apps/gateway-e2e/**/*"
+      ]
     }
   ]
 }
