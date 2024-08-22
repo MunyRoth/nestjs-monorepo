@@ -33,3 +33,9 @@ pnpm add -D drizzle-kit
 ```sh
 pnpm add @nestjs-modules/mailer nodemailer ejs
 ```
+
+# Add Passport and Passport-Local Dependency
+```sh
+pnpm add @nestjs/passport passport passport-local
+pnpm add -D @types/passport-local
+```
