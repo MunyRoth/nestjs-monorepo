@@ -39,3 +39,9 @@ pnpm add @nestjs-modules/mailer nodemailer ejs
 pnpm add @nestjs/passport passport passport-local
 pnpm add -D @types/passport-local
 ```
+
+# Add JWT Dependency
+```sh
+pnpm add @nestjs/jwt passport-jwt
+pnpm add -D @types/passport-jwt
+```
