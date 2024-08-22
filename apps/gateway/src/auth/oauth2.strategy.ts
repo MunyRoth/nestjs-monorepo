@@ -33,15 +33,12 @@ export class OAuth2Strategy extends PassportStrategy(Strategy, 'oauth2') {
     profile: any,
     done: VerifyCallback
   ) {
-    try {
-      const user = {
-        accessToken,
-        refreshToken,
-        profile,
-      };
-      return done(null, user);
-    } catch (err) {
-      return done(err, false);
-    }
+    const payload = {
+      profile,
+      access_token: accessToken,
+      refresh_token: refreshToken,
+    };
+
+    done(null, payload);
   }
 }

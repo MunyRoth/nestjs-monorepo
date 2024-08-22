@@ -9,6 +9,7 @@ import { jwtConstants } from './constants';
 import { GoogleStrategy } from './google.strategy';
 import { OAuth2Strategy } from './oauth2.strategy';
 import { IntrospectionStrategy } from './introspection.strategy';
+import { FacebookStrategy } from './facebook.strategy';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { IntrospectionStrategy } from './introspection.strategy';
     LocalStrategy,
     JwtStrategy,
     GoogleStrategy,
+    FacebookStrategy,
     OAuth2Strategy,
     IntrospectionStrategy,
   ],

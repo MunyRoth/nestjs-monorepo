@@ -52,7 +52,21 @@ export class AppController {
   @Get('auth/google/callback')
   @UseGuards(AuthGuard('google'))
   async googleAuthRedirect(@Request() req) {
-    return this.authService.login(req.user);
+    return req.user;
+    // return this.authService.login(req.user);
+  }
+
+  @Get('auth/facebook')
+  @UseGuards(AuthGuard('facebook'))
+  async facebookAuth() {
+    return 'Facebook login';
+  }
+
+  @Get('auth/facebook/callback')
+  @UseGuards(AuthGuard('facebook'))
+  async facebookAuthRedirect(@Request() req) {
+    return req.user;
+    // return this.authService.login(req.user);
   }
 
   @Get('auth/oauth2')
@@ -64,7 +78,8 @@ export class AppController {
   @Get('auth/oauth2/callback')
   @UseGuards(AuthGuard('oauth2'))
   async loginOAuth2Redirect(@Request() req) {
-    return this.authService.login(req.user);
+    return req.user;
+    // return this.authService.login(req.user);
   }
 
   @Get('introspection')

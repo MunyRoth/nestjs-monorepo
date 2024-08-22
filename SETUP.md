@@ -46,8 +46,26 @@ pnpm add @nestjs/jwt passport-jwt
 pnpm add -D @types/passport-jwt
 ```
 
-# Add Google OAuth Dependency
+# Add OAuth2 Dependency
+```sh
+pnpm add passport-oauth2
+pnpm add -D @types/passport-oauth2
+```
+
+# Add Google OAuth2 Dependency
 ```sh
 pnpm add passport-google-oauth20
 pnpm add -D @types/passport-google-oauth20
+```
+
+# Add Facebook OAuth2 Dependency
+```sh
+pnpm add passport-facebook
+pnpm add -D @types/passport-facebook
+```
+
+# Add Passport Strategy Dependency
+```sh
+pnpm add passport-strategy
+pnpm add -D @types/passport-strategy
 ```

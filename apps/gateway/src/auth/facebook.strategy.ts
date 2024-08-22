@@ -1,18 +1,19 @@
 import { PassportStrategy } from '@nestjs/passport';
-import { Strategy, VerifyCallback } from 'passport-google-oauth20';
+import { Strategy } from 'passport-facebook';
 import { Injectable } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import * as process from 'node:process';
+import { VerifyCallback } from 'passport-oauth2';
 
 @Injectable()
-export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
+export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
   constructor(private authService: AuthService) {
     super(
       {
-        clientID: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: 'http://localhost:3000/api/auth/google/callback',
-        scope: ['email', 'profile'],
+        clientID: process.env.FACEBOOK_CLIENT_ID,
+        clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+        callbackURL: 'http://localhost:3000/api/auth/facebook/callback',
+        profileFields: ['id', 'name', 'emails', 'photos'],
       },
       async (
         accessToken: string,
